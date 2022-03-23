@@ -8,7 +8,6 @@ function Home() {
     const [coins, setCoins] = useState([]);
     const [searchTerm, setSearchTerm] = useState("");
     const [isLoading, setIsLoading] = useState(false);
-    console.log(coins);
     useEffect(() => {
         refreshPage();
     }, []);
