@@ -8,19 +8,15 @@ import BackgroundImg from "../Images/BackgroundImage.avif";
 function CoinPage() {
     let { id } = useParams();
     const [coin, setCoin] = useState(null);
-    // coin start has to be null first to give time to fetch API data
 
     useEffect(() => {
-        console.log(id);
         Axios.get(`https://api.coingecko.com/api/v3/coins/${id}`).then(
             (response) => {
-                console.log(response.data);
                 setCoin(response.data);
             }
         );
     }, []);
 
-    // if statement to check if data has reached, only then render the component
     if (coin) {
         return (
             <div
@@ -79,7 +75,7 @@ function CoinPage() {
             </div>
         );
     } else {
-        return null; // if API data not fetched, return null
+        return null;
     }
 }
 
